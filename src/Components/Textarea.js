@@ -11,16 +11,20 @@ export default function Textarea(props) {
         console.log("Uppercase clicked");
         let newText = text.toUpperCase();
         setText(newText);
+        props.setAlertValue("success","Text is converted to uppercase")
+        
     }
     const onClickdown = () =>{
       console.log("Lowercase clicked");
       let newText = text.toLowerCase();
       setText(newText);
+      props.setAlertValue("success","Text is converted to lowercase")
   }
     const onClickRemove = () =>{
       console.log("Remove clicked");
       let newText = "";
       setText(newText);
+      props.setAlertValue("success","Text is cleared")
   }
 
   const [text, setText] = useState("");
@@ -29,7 +33,7 @@ export default function Textarea(props) {
       <div className = "container my-3" >
         <h2 style = {{color : (props.mode === "dark") ? "white" : "black"}}>{props.heading} </h2>
         <div>
-            <textarea className="form-control my-3" style = {{backgroundColor : (props.mode === "dark" ? "#19032F" : "white"),color : (props.mode === "dark" ? "white" : "dark")}} value = {text} onChange = {onChangeFunction} id="exampleFormControlTextarea1" rows="10"></textarea>
+            <textarea className="form-control my-3" style = {{backgroundColor : (props.mode === "dark" ? "#19032F" : "white"),color : (props.mode === "dark" ? "white" : "black")}} value = {text} onChange = {onChangeFunction} id="exampleFormControlTextarea1" rows="10"></textarea>
         </div>
         
         <button className="btn btn-primary mx-3 " onClick = {onClickUp}>Convert Uppercase</button>
