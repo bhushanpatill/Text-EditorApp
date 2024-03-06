@@ -26,10 +26,10 @@ export default function Textarea(props) {
   const [text, setText] = useState("");
   return (
     <>
-      <div className = "container my-3">
-        <h2>{props.heading}</h2>
+      <div className = "container my-3" >
+        <h2 style = {{color : (props.mode === "dark") ? "white" : "black"}}>{props.heading} </h2>
         <div>
-            <textarea className="form-control my-3" value = {text} onChange = {onChangeFunction} id="exampleFormControlTextarea1" rows="10"></textarea>
+            <textarea className="form-control my-3" style = {{backgroundColor : (props.mode === "dark" ? "#19032F" : "white"),color : (props.mode === "dark" ? "white" : "dark")}} value = {text} onChange = {onChangeFunction} id="exampleFormControlTextarea1" rows="10"></textarea>
         </div>
         
         <button className="btn btn-primary mx-3 " onClick = {onClickUp}>Convert Uppercase</button>
@@ -37,7 +37,7 @@ export default function Textarea(props) {
         <button type="button" className="btn btn-danger mx-3" onClick = {onClickRemove}>Remove Text</button>
         </div>
 
-        <div className = "container my -3">
+        <div className = "container my -3" style = {{color : (props.mode === "dark") ? "white" : "black"}}>
           <h2>Text Summary</h2>
           <p>{text.split(" ").length} words and {text.length} characters are present</p>
         </div>

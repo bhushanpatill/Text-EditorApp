@@ -8,16 +8,18 @@ function App() {
   const [mode, setmode] = useState("light");
   const togglemode = () =>{
     if(mode === "dark"){
-      setmode("light")
+      setmode("light");
+      document.body.style.backgroundColor = "cyan";
     }
     else{
       setmode("dark")
+      document.body.style.backgroundColor = "#19032F";
     }
   }
   return (
     <>
       <Navbar text = "Text-Editor" mode = {mode} toggleMode = {togglemode}/>
-      <Textarea heading = "Enter your text below"/>
+      <Textarea heading = "Enter your text below" mode = {mode} toggleMode = {togglemode}/>
     </>
   );
 }
