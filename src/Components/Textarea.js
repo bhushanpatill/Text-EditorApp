@@ -23,8 +23,9 @@ export default function Textarea(props) {
       setText(newText);
   }
 
-  const [text, setText] = useState("Enter text here: ");
+  const [text, setText] = useState("");
   return (
+    <>
       <div className = "container my-3">
         <h2>{props.heading}</h2>
         <div>
@@ -35,5 +36,11 @@ export default function Textarea(props) {
         <button type="button" className="btn btn-warning mx - 3" onClick = {onClickdown}>Convert Lowercase</button>
         <button type="button" className="btn btn-danger mx-3" onClick = {onClickRemove}>Remove Text</button>
         </div>
+
+        <div className = "container my -3">
+          <h2>Text Summary</h2>
+          <p>{text.split(" ").length} words and {text.length} characters are present</p>
+        </div>
+        </>
   )
 }
